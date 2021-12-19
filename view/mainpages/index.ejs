@@ -1,0 +1,61 @@
+<%- include("../partial/header.ejs") %>
+    <section>
+        <div class="container-fluid col-md-4 col-lg-3">
+            <div class="bg-image col-md-4 col-lg-3" style="background-image: url('/pics/money.jpg'); height: 100vh;background-repeat: no-repeat;background-size: cover;">
+                <div class="row">
+                    <br>
+                    <div class="col-md-4 col-lg-3">
+                        <marquee style="color: maroon; width: 25; height: 40;font-weight: bold;">Welcome to Bill Generator Application!!</marquee>
+                    </div><br><br>
+                    <div class="text-center" style="font-size: x-large; color:black;font-family:cursive;font-weight: bold;text-align: center;width: 100;font-size: xx-large;">
+                        BILL GENERATOR
+                    </div>
+                    <div class="container">
+                        <div class="card text-center " style="width: 18rem; margin-left: 36%; height: 120%;">
+
+                            <div class="card-body c" style="background-color: chocolate;width: 150%; height: 150%;">
+                                <p class="card-text">
+                                    <form action="/Generate" method="post">
+                                        <div class="form-group row a"><br>
+                                            <label for="name" class="col-sm-2 col-form-label" style="font-size: large; color: yellow;font-family:cursive; font-weight: bold;font-style:oblique;">Customer Name:</label>
+                                            <div class="col-sm-10 a">
+                                                <input type="text" class="form-control" name="cname" placeholder="Enter full name" value="<%= data.c_name %>" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row a"><br>
+                                            <label for="productname" class="col-sm-2 col-form-label" style="font-size: large; color: yellow;font-family:cursive; font-weight: bold;font-style:oblique;">Product Name:</label>
+                                            <div class="col-sm-10 a">
+                                                <input type="text" class="form-control" name="pname" placeholder="Enter product name" value="<%= data.p_name %>" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row a"><br>
+                                            <label for="productprice" class="col-sm-2 col-form-label" style="font-size: large; color: yellow;font-family:cursive; font-weight: bold;font-style:oblique;">Product Price:</label>
+                                            <div class="col-sm-10 a">
+                                                <input type="text" class="form-control" name="pprice" placeholder="Product price in numbers" value="<%= data.p_price %>" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row a"><br>
+                                            <label for="quantity" class="col-sm-2 col-form-label" style="font-size: large; color: yellow;font-family:cursive; font-weight: bold;font-style:oblique;">Quantity:</label>
+                                            <div class="col-sm-10 a">
+                                                <input type="text" class="form-control" name="qty" placeholder="quantity in number" value="<%= data.qty %>" required>
+                                            </div>
+                                        </div><br>
+                                        <button type="submit" value="submit" class="b">GENERATE</button>
+                                        <button type="clear" value="clear" class="b" style="margin-left: 5%;">CLEAR</button><br>
+                                        <div class="form-group row a"><br>
+                                            <label for="Netamount" class="col-sm-2 col-form-label" style="font-size: large; color: yellow;font-family:cursive; font-weight: bold;font-style:oblique;">Net Amount:</label>
+                                            <div class="col-sm-10 a">
+                                                <input type="text" class="form-control" name="netamt" value="<%=data.p_price %>*<%= data.qty %>" placeholder="0.00">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <%- include("../partial/footer.ejs")%>
